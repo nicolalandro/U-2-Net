@@ -48,11 +48,11 @@ def muti_bce_loss_fusion(d0, d1, d2, d3, d4, d5, d6, labels_v):
 
 model_name = 'u2net' #'u2netp'
 
-data_dir = os.path.join(os.getcwd(), 'train_data' + os.sep)
-tra_image_dir = os.path.join('DUTS', 'DUTS-TR', 'DUTS-TR', 'im_aug' + os.sep)
-tra_label_dir = os.path.join('DUTS', 'DUTS-TR', 'DUTS-TR', 'gt_aug' + os.sep)
+data_dir = os.path.join(os.getcwd(), 'dataset' + os.sep)
+tra_image_dir = os.path.join('imgs' + os.sep)
+tra_label_dir = os.path.join('gt' + os.sep)
 
-image_ext = '.jpg'
+image_ext = '.tiff'
 label_ext = '.png'
 
 model_dir = os.path.join(os.getcwd(), 'saved_models', model_name + os.sep)

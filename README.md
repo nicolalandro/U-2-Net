@@ -10,3 +10,8 @@ cd ..
 cd ..
 python3.7 u2net_test.py
 ```
+
+* train
+```
+python3.7 u2net_train.py
+```

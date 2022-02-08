@@ -21,3 +21,8 @@ python3.7 u2net_train.py
 mkdir saved_models/u2net_daedalus1
 CUDA_VISIBLE_DEVICES="1" nohup python3.7 u2net_train_daedalus.py > daedalus.log  2>&1 &
 ```
+* predict
+```
+CUDA_VISIBLE_DEVICES=0 python3.7 u2net_test_daedalus.py
+# results in test_data/u2net_results/<nome_data>.png
+```

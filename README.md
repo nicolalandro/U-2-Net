@@ -15,3 +15,9 @@ python3.7 u2net_test.py
 ```
 python3.7 u2net_train.py
 ```
+
+* train daedalus
+```
+mkdir saved_models/u2net_daedalus1
+CUDA_VISIBLE_DEVICES="1" nohup python3.7 u2net_train_daedalus.py > daedalus.log  2>&1 &
+```

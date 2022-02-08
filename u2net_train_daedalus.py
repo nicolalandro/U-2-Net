@@ -48,11 +48,11 @@ model_name = 'u2net' #'u2netp'
 
 # image_ext = '.tiff'
 # label_ext = '.png'
-
-model_dir = os.path.join(os.getcwd(), 'saved_models', model_name + os.sep)
+experiment = '_daedalus1'
+model_dir = os.path.join(os.getcwd(), 'saved_models', model_name + experiment + os.sep)
 
 epoch_num = 100000
-batch_size_train = 3
+batch_size_train = 2
 batch_size_val = 1
 train_num = 0
 val_num = 0

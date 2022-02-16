@@ -56,13 +56,13 @@ def main():
 
 
     image_dir = os.path.join(os.getcwd(), 'test_data', 'test_images')
-    prediction_dir = os.path.join(os.getcwd(), 'test_data', model_name + '_results' + os.sep)
+    prediction_dir = os.path.join(os.getcwd(), 'test_data', model_name + '_results_daedalus' + os.sep)
     # model_dir = os.path.join(os.getcwd(), 'saved_models', model_name, model_name + '.pth')
-    model_dir = 'saved_models/u2net_daedalus1/u2net_bce_itr_12000_train_0.098166_tar_0.010300.pth'
+    model_dir = 'saved_models/u2net_daedalus1/u2net_bce_itr_115520_train_0.021608_tar_0.002773.pth'
     # --------- 2. dataloader ---------
     #1. dataloader
     test_salobj_dataset = DaedalusDataset(
-        '../daedalus-preprocessing/dataset-pairs',
+        '/home/supreme/datasets-nas/INAF/daedalus/dataset-pairs/test',
         transform=transforms.Compose(
             [
                 ToTensorLab(flag=0)
@@ -121,7 +121,8 @@ def main():
         im.save(prediction_dir+img_name_list[i_test]+'.png')
 
         del d1,d2,d3,d4,d5,d6,d7
-        break
+        if i_test >= 0:
+            break
 
 if __name__ == "__main__":
     main()

@@ -25,7 +25,7 @@ class DaedalusDataset(Dataset):
         return len(self.hr_img_name_list)
 
     def __getitem__(self, idx):
-
+        # print('idx', idx)
         # image = Image.open(self.image_name_list[idx])#io.imread(self.image_name_list[idx])
         # label = Image.open(self.label_name_list[idx])#io.imread(self.label_name_list[idx])
         hr_path = os.path.join(self.dataset_path, 'image-HR', self.hr_img_name_list[idx])

@@ -1,5 +1,10 @@
 # Train a U2Net
 
+* libs
+```
+pip install pytorch-ignite
+```
+
 * test
 ```
 cd saved_models
@@ -25,4 +30,8 @@ CUDA_VISIBLE_DEVICES="1" nohup python3.7 u2net_train_daedalus.py > daedalus.log 
 ```
 CUDA_VISIBLE_DEVICES=0 python3.7 u2net_test_daedalus.py
 # results in test_data/u2net_results/<nome_data>.png
+```
+* test metrics
+```
+CUDA_VISIBLE_DEVICES="0,1" nohup python3.7 u2net_test_daedalus_metrics.py > test_daedalus2.log 2>&1 &
 ```

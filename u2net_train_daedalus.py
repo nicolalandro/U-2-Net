@@ -51,8 +51,8 @@ model_name = 'u2net' #'u2netp'
 experiment = '_daedalus1'
 model_dir = os.path.join(os.getcwd(), 'saved_models', model_name + experiment + os.sep)
 
-epoch_num = 100000
-batch_size_train = 2
+epoch_num = 200
+batch_size_train = 1
 batch_size_val = 1
 train_num = 0
 val_num = 0
@@ -85,8 +85,11 @@ val_num = 0
 #         RescaleT(320),
 #         RandomCrop(288),
 #         ToTensorLab(flag=0)]))
+
+
+# '../daedalus-preprocessing/dataset-pairs'
 salobj_dataset = DaedalusDataset(
-    '../daedalus-preprocessing/dataset-pairs',
+    '/home/supreme/datasets-nas/INAF/daedalus/dataset-pairs/train',
     transform=transforms.Compose(
         [
             ToTensorLab(flag=0)
@@ -120,7 +123,7 @@ ite_num = 0
 running_loss = 0.0
 running_tar_loss = 0.0
 ite_num4val = 0
-save_frq = 2000 # save the model every 2000 iterations
+save_frq = 190 # save the model every 2000 iterations
 
 for epoch in range(0, epoch_num):
     net.train()
@@ -162,7 +165,7 @@ for epoch in range(0, epoch_num):
         epoch + 1, epoch_num, (i + 1) * batch_size_train, train_num, ite_num, running_loss / ite_num4val, running_tar_loss / ite_num4val))
 
         if ite_num % save_frq == 0:
-
+            print('saveing...')
             torch.save(net.state_dict(), model_dir + model_name+"_bce_itr_%d_train_%3f_tar_%3f.pth" % (ite_num, running_loss / ite_num4val, running_tar_loss / ite_num4val))
             running_loss = 0.0
             running_tar_loss = 0.0

@@ -46,7 +46,7 @@ def save_output(image_name,pred,d_dir):
     for i in range(1,len(bbb)):
         imidx = imidx + "." + bbb[i]
 
-    imo.save(d_dir+imidx+'.png')
+    imo.save(d_dir+img_name)
 
 def main():
 
@@ -59,6 +59,8 @@ def main():
     prediction_dir = os.path.join(os.getcwd(), 'test_data', model_name + '_results_daedalus' + os.sep)
     # model_dir = os.path.join(os.getcwd(), 'saved_models', model_name, model_name + '.pth')
     model_dir = 'saved_models/u2net_daedalus1/u2net_bce_itr_115520_train_0.021608_tar_0.002773.pth'
+    # u2net_bce_itr_570_train_1.167349_tar_0.164200.pth
+    # /u2net_bce_itr_115520_train_0.021608_tar_0.002773.pth
     # --------- 2. dataloader ---------
     #1. dataloader
     test_salobj_dataset = DaedalusDataset(
@@ -118,10 +120,12 @@ def main():
         predict_np = predict.cpu().data.numpy()
 
         im = Image.fromarray(predict_np*255).convert('RGB')
-        im.save(prediction_dir+img_name_list[i_test]+'.png')
+        save_file = prediction_dir+img_name_list[i_test]
+        print('\tsave in', save_file)
+        im.save(save_file)
 
         del d1,d2,d3,d4,d5,d6,d7
-        if i_test >= 0:
+        if i_test >= 5:
             break
 
 if __name__ == "__main__":

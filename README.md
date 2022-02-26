@@ -30,6 +30,8 @@ CUDA_VISIBLE_DEVICES="1" nohup python3.7 u2net_train_daedalus.py > daedalus.log 
 ```
 CUDA_VISIBLE_DEVICES=0 python3.7 u2net_test_daedalus.py
 # results in test_data/u2net_results/<nome_data>.png
+python3.7 u2net_test_daedalus_fiftyone.py
+# firefox localhost:5151
 ```
 * test metrics
 ```
